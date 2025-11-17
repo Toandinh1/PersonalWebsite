@@ -486,10 +486,11 @@ body {
 
   .activity-photo {
     width: 100%;
-    max-width: 600px; /* limit the size */
-    border-radius: 1rem;
+    max-width: 350px;   /* smaller image size */
+    border-radius: 0.8rem;
     display: block;
-    margin: 1rem auto; /* center */
+    margin: 1.2rem auto;  /* center the image */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* optional improvement */
   }
 
 
