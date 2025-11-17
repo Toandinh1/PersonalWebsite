@@ -485,11 +485,11 @@ body {
   }
 
   .activity-photo {
-    width: 100%;
-    max-width: 350px;   /* smaller image size */
-    border-radius: 0.8rem;
+    width: 50%;
+    max-width: 150px;   /* smaller image size */
+    border-radius: 0.5rem;
     display: block;
-    margin: 1.2rem auto;  /* center the image */
+    margin: 1.0rem auto;  /* center the image */
     box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* optional improvement */
   }
 
