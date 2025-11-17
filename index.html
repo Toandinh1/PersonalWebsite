@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><!-- TODO: Your Name --> | Personal Website</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ========= NAVBAR ========= -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <!-- TODO: Your initials -->
+        <a href="#hero">TG</a>
+      </div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========= HERO SECTION ========= -->
+    <section id="hero" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="hero-tagline">
+            <!-- TODO: Short role description -->
+            PhD Student · Wireless Sensing · AI
+          </p>
+          <h1>
+            <!-- TODO: Your full name -->
+            Toan D. Gian
+          </h1>
+          <p class="hero-subtitle">
+            <!-- TODO: 2–3 sentence summary -->
+            I’m a PhD student in Electrical & Computer Engineering at
+            Northeastern University. My research focuses on wireless sensing,
+            WiFi-based human pose estimation, and edge–cloud AI systems.
+          </p>
+          <div class="hero-actions">
+            <!-- TODO: Update links -->
+            <a class="btn primary" href="#research">View my research</a>
+            <a class="btn secondary" href="#contact">Get in touch</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <!-- You can replace this block with a real photo -->
+          <div class="avatar-placeholder">
+            <!-- TODO: If you have a real photo, remove this div and use <img> -->
+            <span>Photo</span>
+          </div>
+          <ul class="hero-meta">
+            <li>
+              <strong>Affiliation</strong><br />
+              <!-- TODO -->
+              Northeastern University, Boston, MA
+            </li>
+            <li>
+              <strong>Advisor</strong><br />
+              <!-- TODO -->
+              Prof. Francesco Restuccia
+            </li>
+            <li>
+              <strong>Email</strong><br />
+              <!-- TODO -->
+              toan.example@northeastern.edu
+            </li>
+          </ul>
+          <div class="hero-links">
+            <!-- TODO: Update or remove socials -->
+            <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+            <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+            <!-- Example CV link: put your PDF in repo root as cv.pdf -->
+            <a href="cv.pdf" target="_blank">CV (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= ABOUT SECTION ========= -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About Me</h2>
+        <div class="two-column">
+          <p>
+            <!-- TODO: 1st paragraph about background -->
+            I am a researcher interested in the intersection of wireless
+            communications, machine learning, and sensing. I completed my
+            B.Sc. in Electronics & Telecommunications at Hanoi University of
+            Science and Technology.
+          </p>
+          <p>
+            <!-- TODO: 2nd paragraph about current work / goals -->
+            Currently, I work on WiFi-based human pose estimation and
+            channel-state information (CSI) compression for edge–cloud
+            systems. I enjoy building practical systems that bridge theory and
+            real-world deployment.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>Research Interests</h3>
+            <ul>
+              <!-- TODO -->
+              <li>Wireless sensing and WiFi-based HPE</li>
+              <li>Deep learning for communication systems</li>
+              <li>Edge–cloud computing & resource allocation</li>
+              <li>Data compression and semantic communications</li>
+            </ul>
+          </div>
+          <div class="about-card">
+            <h3>Education</h3>
+            <ul>
+              <!-- TODO: Adapt to your history -->
+              <li>
+                <strong>Ph.D. in Electrical & Computer Engineering</strong><br />
+                Northeastern University · 2025–Present
+              </li>
+              <li>
+                <strong>B.Sc. in Electronics & Telecommunications</strong><br />
+                Hanoi University of Science and Technology · 2019–2023
+              </li>
+            </ul>
+          </div>
+          <div class="about-card">
+            <h3>Keywords</h3>
+            <div class="tag-list">
+              <!-- TODO -->
+              <span class="tag">WiFi Sensing</span>
+              <span class="tag">Human Pose Estimation</span>
+              <span class="tag">Deep Learning</span>
+              <span class="tag">Edge Computing</span>
+              <span class="tag">CSI Compression</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= RESEARCH SECTION ========= -->
+    <section id="research" class="section section-alt">
+      <div class="container">
+        <h2>Research Overview</h2>
+        <div class="two-column">
+          <p>
+            <!-- TODO: High-level research statement -->
+            My research aims to enable accurate and efficient human sensing
+            using commodity wireless devices. I explore how channel-state
+            information can be compressed, denoised, and mapped to human pose
+            using deep neural networks.
+          </p>
+          <p>
+            <!-- TODO: A bit more detail -->
+            I am particularly interested in lightweight models that can run on
+            edge devices, as well as cloud-based pipelines that scale to
+            multiple users and environments while preserving privacy.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= PROJECTS SECTION ========= -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Selected Projects</h2>
+        <div class="project-grid">
+          <!-- ===== Project 1 ===== -->
+          <article class="project-card">
+            <h3><!-- TODO: Project name -->WiLHPE</h3>
+            <p class="project-meta">
+              <!-- TODO: Roles / year -->
+              WiFi-based Lightweight Human Pose Estimation · 2024
+            </p>
+            <p>
+              <!-- TODO: Short description -->
+              Designed a lightweight dual-selective kernel convolution network
+              for human pose estimation from WiFi CSI, reducing computation
+              while maintaining accuracy.
+            </p>
+            <p class="project-links">
+              <!-- TODO: Update links or remove -->
+              <a href="#" target="_blank">Paper</a>
+              <a href="#" target="_blank">Code</a>
+            </p>
+          </article>
+
+          <!-- ===== Project 2 ===== -->
+          <article class="project-card">
+            <h3><!-- TODO: Project name -->CloudSense</h3>
+            <p class="project-meta">
+              CSI Compression for Cloud-based WiFi Sensing · 2024
+            </p>
+            <p>
+              Built a VQ-based CSI compression pipeline that significantly
+              reduces bandwidth for edge–cloud WiFi sensing without degrading
+              downstream HPE performance.
+            </p>
+            <p class="project-links">
+              <a href="#" target="_blank">Paper</a>
+              <a href="#" target="_blank">Code</a>
+            </p>
+          </article>
+
+          <!-- ===== Project 3 ===== -->
+          <article class="project-card">
+            <h3><!-- TODO: Project name -->DS-DRL</h3>
+            <p class="project-meta">
+              Distributed DRL for O-RAN Slicing · 2025
+            </p>
+            <p>
+              Developed a distributed semantic deep reinforcement learning
+              framework for dynamic resource allocation in O-RAN-based edge
+              computing environments.
+            </p>
+            <p class="project-links">
+              <a href="#" target="_blank">Preprint</a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= PUBLICATIONS SECTION ========= -->
+    <section id="publications" class="section section-alt">
+      <div class="container">
+        <h2>Publications</h2>
+        <p class="section-note">
+          <!-- TODO -->
+          *Authors in bold indicate corresponding or equal contribution.
+        </p>
+        <ol class="pub-list">
+          <!-- TODO: Replace with your own list -->
+          <li>
+            <span class="pub-title">
+              CloudSense: Effective CSI Data Compression for Cloud-based WiFi Sensing in HPE Tasks
+            </span><br />
+            <span class="pub-authors">
+              <strong>Toan D. Gian</strong>, A. Collaborator, B. Collaborator
+            </span><br />
+            <span class="pub-venue">
+              Conference Name, 2025.
+            </span>
+            <span class="pub-links">
+              <a href="#" target="_blank">PDF</a> ·
+              <a href="#" target="_blank">Code</a>
+            </span>
+          </li>
+          <li>
+            <span class="pub-title">
+              WiLHPE: Lightweight Dual-Selective Kernel Convolution for WiFi-based HPE
+            </span><br />
+            <span class="pub-authors">
+              <strong>Toan D. Gian</strong>, C. Collaborator, D. Collaborator
+            </span><br />
+            <span class="pub-venue">
+              ECCV, 2024.
+            </span>
+            <span class="pub-links">
+              <a href="#" target="_blank">PDF</a>
+            </span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========= CONTACT SECTION ========= -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="two-column">
+          <p>
+            <!-- TODO: Contact text -->
+            I am always open to discussing research collaborations, student
+            mentoring, or interesting ideas related to wireless sensing and AI.
+            The best way to reach me is via email.
+          </p>
+          <div class="contact-box">
+            <p>
+              <strong>Email:</strong><br />
+              <!-- TODO -->
+              <a href="mailto:toan.example@northeastern.edu">
+                toan.example@northeastern.edu
+              </a>
+            </p>
+            <p>
+              <strong>Location:</strong><br />
+              Boston, MA, USA
+            </p>
+            <p>
+              <strong>Elsewhere:</strong><br />
+              <!-- TODO: Update links -->
+              <a href="https://github.com/yourusername" target="_blank">GitHub</a> ·
+              <a href="https://scholar.google.com" target="_blank">Google Scholar</a> ·
+              <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========= FOOTER ========= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>
+        <!-- TODO -->
+        © <span id="year"></span> <!-- Your name --> Toan D. Gian. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Auto update year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
