@@ -5,29 +5,426 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Toan Gian | Personal Website</title>
 
-
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f7f9fc;
+      --text: #111827;
+      --muted: #4b5563;
+      --border: #e5e7eb;
+      --primary: #1f4ed8;
+      --primary-dark: #173ea8;
+      --card: #ffffff;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 72px;
+      gap: 24px;
+    }
+
+    .logo a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .logo a:hover {
+      text-decoration: none;
+      background: var(--primary-dark);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+      font-size: 0.94rem;
+      font-weight: 500;
+    }
+
+    .nav a {
+      color: var(--text);
+    }
+
+    .nav a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      padding: 90px 0 72px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.8fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .hero-tagline {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 12px;
+      border: 1px solid #dbeafe;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(2.4rem, 5vw, 4.3rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-subtitle {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+    }
+
+    .btn:hover {
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .btn.primary:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+    }
+
+    .btn.secondary {
+      background: #ffffff;
+      color: var(--text);
+    }
+
+    .btn.secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .avatar-photo {
+      display: block;
+      width: 100%;
+      max-width: 260px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 22px;
+      margin: 0 auto 20px;
+      border: 1px solid var(--border);
+    }
+
+    .hero-meta {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin: 18px 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-meta strong {
+      color: var(--text);
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .section {
+      padding: 72px 0;
+      background: var(--bg);
+    }
+
+    .section-alt {
+      background: var(--bg-alt);
+    }
+
+    h2 {
+      margin-bottom: 24px;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .one-column,
+    .two-column,
+    .timeline,
+    .pub-list,
+    .contact-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+    }
+
+    .one-column p + p {
+      margin-top: 16px;
+    }
+
+    .section-note {
+      max-width: 850px;
+      margin-bottom: 22px;
+      color: var(--muted);
+    }
+
+    .news-list,
+    .education-list,
+    .experience-list {
+      list-style: none;
+      display: grid;
+      gap: 18px;
+    }
+
+    .news-list li,
+    .education-list li,
+    .experience-list li {
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .news-list li:last-child,
+    .education-list li:last-child,
+    .experience-list li:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .date {
+      display: inline-block;
+      min-width: 145px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .item-title {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .item-meta {
+      color: var(--muted);
+    }
+
+    .pub-list {
+      padding-left: 48px;
+    }
+
+    .pub-list li {
+      margin-bottom: 26px;
+      padding-left: 6px;
+    }
+
+    .pub-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .pub-title {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .pub-authors,
+    .pub-venue {
+      color: var(--muted);
+    }
+
+    .pub-links {
+      font-weight: 600;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-box {
+      padding: 22px;
+      box-shadow: none;
+    }
+
+    .contact-box p + p {
+      margin-top: 16px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .site-footer {
+      padding: 28px 0;
+      background: #f9fafb;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .nav-container {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 0;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero-inner,
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav {
+        gap: 12px;
+        font-size: 0.88rem;
+      }
+
+      .one-column,
+      .two-column,
+      .timeline,
+      .pub-list,
+      .contact-box {
+        padding: 22px;
+      }
+
+      .pub-list {
+        padding-left: 36px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- ========= NAVBAR ========= -->
   <header class="site-header">
     <div class="container nav-container">
       <div class="logo">
-        <!-- TODO: Your initials -->
-        <a href="#hero">TG</a>
+        <a href="#hero" aria-label="Go to homepage">TG</a>
       </div>
-      <nav class="nav">
+      <nav class="nav" aria-label="Main navigation">
         <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Selected Publications</a>
+        <a href="#news">News</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#publications">Publications</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -38,54 +435,36 @@
     <section id="hero" class="hero">
       <div class="container hero-inner">
         <div class="hero-text">
-          <p class="hero-tagline">
-            <!-- TODO: Short role description -->
-            PhD Student
-          </p>
-          <h1>
-            <!-- TODO: Your full name -->
-            Toan Gian
-          </h1>
+          <p class="hero-tagline">Ph.D. Student</p>
+          <h1>Toan Gian</h1>
           <p class="hero-subtitle">
-            <!-- TODO: 2–3 sentence summary -->
-            I am a second year PhD student in Electrical & Computer Engineering at
-            Northeastern University. My research focuses on optimizing resource consumption and efficiency in multi-agent systems.
+            I am a Ph.D. student in Computer Science at Dartmouth College. My research focuses on designing AI-based wearable devices for healthcare applications, wireless sensing, and multi-agent learning systems.
           </p>
           <div class="hero-actions">
-            <!-- TODO: Update links -->
-            <a class="btn primary" href="#research">View my research</a>
+            <a class="btn primary" href="#publications">View my research</a>
             <a class="btn secondary" href="#contact">Get in touch</a>
           </div>
         </div>
 
-        <div class="hero-card">
-          <img src="myself.jpg" alt="Toan D. Gian" class="avatar-photo">
+        <aside class="hero-card" aria-label="Profile summary">
+          <img src="myself.jpg" alt="Toan Gian" class="avatar-photo" />
           <ul class="hero-meta">
             <li>
-              <strong>Affiliation</strong><br />
-              <!-- TODO -->
-              WIoT, Northeastern University, Boston, MA, US
-            </li>
-            <li>
-              <strong>Advisor</strong><br />
-              <!-- TODO -->
-              Prof. Francesco Restuccia
+              <strong>Location</strong><br />
+              Boston, MA, USA
             </li>
             <li>
               <strong>Email</strong><br />
-              <!-- TODO -->
-              toan.g@northeastern.edu
+              <a href="mailto:toan.g@northeastern.edu">toan.g@northeastern.edu</a>
             </li>
           </ul>
           <div class="hero-links">
-            <!-- TODO: Update or remove socials -->
-            <a href="https://scholar.google.com/citations?user=oeh2iTYAAAAJ&hl=en" target="_blank">Google Scholar</a>
-            <a href="https://github.com/Toandinh1" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/toan-gian-450395244/" target="_blank">LinkedIn</a>
-            <!-- Example CV link: put your PDF in repo root as cv.pdf -->
-            <a href="CV.pdf" target="_blank">CV (PDF)</a>
+            <a href="https://scholar.google.com/citations?user=oeh2iTYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            <a href="https://github.com/Toandinh1" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/toan-gian-450395244/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
@@ -94,145 +473,163 @@
       <div class="container">
         <h2>About Me</h2>
         <div class="one-column">
+          <p><strong>Hi! I am Toan. Nice to meet you.</strong></p>
           <p>
-            I am currently a Ph.D. student at Northeastern University, working under
-            <a href="https://coe.northeastern.edu/people/restuccia-francesco/" target="_blank">Asst. Prof. Francesco Restuccia</a>
-            on AI/ML for next-generation multi-agent control systems.
-            I hold a Bachelor's degree in Electrical Engineering from Hanoi University of Science and Technology (HUST).
+            My name is Toan, and you can also call me Brian. I was born and raised in Vietnam, a small country with amazing people.
           </p>
+          <p>
+            I am currently a Ph.D. student at Dartmouth College, working under
+            <a href="https://humanx.dartmouth.edu/tamvu/" target="_blank" rel="noopener noreferrer">Distinguished Professor Tam Vu</a>
+            on wearable devices for healthcare applications.
+          </p>
+          <p>
+            Before coming to the United States, I earned a Bachelor&apos;s degree in Electrical Engineering from Hanoi University of Science and Technology (HUST), Vietnam. Before joining my Ph.D. journey, I was fortunate to work with
+            <a href="https://tvluong.wordpress.com/" target="_blank" rel="noopener noreferrer">Dr. Thien Van Luong</a>
+            and
+            <a href="https://www.tcd.ie/scss/people/academic-staff/nguyenva/" target="_blank" rel="noopener noreferrer">Asst. Prof. Van-Dinh Nguyen</a>,
+            who inspired and guided my first steps in academia.
+          </p>
+        </div>
+      </div>
+    </section>
 
-          <ul>
-            <li><strong>2020 - 2021:</strong> LSP Lab, HUST - Undergraduate Student</li>
+    <!-- ========= NEWS SECTION ========= -->
+    <section id="news" class="section section-alt">
+      <div class="container">
+        <h2>News</h2>
+        <div class="one-column">
+          <ul class="news-list">
+            <li><span class="date">June 2026</span> Joined the Computer Science Ph.D. program at Dartmouth College as a fully funded Ph.D. student.</li>
+            <li><span class="date">March 2026</span> One paper accepted to IEEE PerCom 2026 for oral presentation.</li>
+            <li><span class="date">January 2026</span> One paper accepted to AAAI 2026, main track.</li>
+            <li><span class="date">December 2025</span> One paper accepted to IEEE Transactions on Artificial Intelligence.</li>
+            <li><span class="date">January 2025</span> Started my Electrical Engineering Ph.D. program at Northeastern University, USA.</li>
+            <li><span class="date">July 2024</span> One paper accepted to ECCV 2024, main track.</li>
+            <li><span class="date">May 2023</span> Graduated from HUST with a Bachelor&apos;s degree in Electrical Engineering.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
+    <!-- ========= EDUCATION SECTION ========= -->
+    <section id="education" class="section">
+      <div class="container">
+        <h2>Education</h2>
+        <div class="one-column">
+          <ul class="education-list">
             <li>
-              <strong>2021 - 2023:</strong> AIoT Lab, Phenikaa University - Undergraduate Research Student<br>
-              <strong>Advisor:</strong>
-              <a href="https://tvluong.wordpress.com/" target="_blank">Dr. Thien Van Luong</a><br>
-              <strong>Topic:</strong> Applying ML-based signal detection in wireless communication systems
+              <div class="item-title">Dartmouth College</div>
+              <div>Ph.D. in Computer Science</div>
+              <div class="item-meta">Hanover, NH, USA · June 2026 to Present</div>
             </li>
-
             <li>
-              <strong>August 2022 - February 2023:</strong> Bosch Vietnam - AI Engineer Intern
-            </li>
-
-            <li>
-              <strong>July 2023 - November 2024:</strong> ICC Lab, VinUniversity - Research Assistant<br>
-              <strong>Advisor:</strong>
-              <a href="https://www.tcd.ie/scss/people/academic-staff/nguyenva/" target="_blank">Asst. Prof. Van Dinh Nguyen</a><br>
-              <strong>Topic:</strong> Leveraging AI/ML and wireless sensing technologies for human pose estimation
-            </li>
-
-            <li>
-              <strong>January 2025 - Present:</strong> Mentis Lab, Northeastern University, USA - Ph.D. Student<br>
-              <strong>Advisor:</strong>
-              <a href="https://coe.northeastern.edu/people/restuccia-francesco/" target="_blank">Asst. Prof. Francesco Restuccia</a><br>
-              <strong>Topic:</strong> Applying AI/ML in next-generation multi-agent control systems
+              <div class="item-title">Hanoi University of Science and Technology</div>
+              <div>Bachelor of Electrical Engineering</div>
+              <div class="item-meta">Hanoi, Vietnam · 2018 to 2023</div>
             </li>
           </ul>
         </div>
       </div>
     </section>
 
-       
-
-    <!-- ========= RESEARCH SECTION ========= -->
-    <section id="research" class="section section-alt">
+    <!-- ========= EXPERIENCE SECTION ========= -->
+    <section id="experience" class="section section-alt">
       <div class="container">
-        <h2>Research Overview</h2>
+        <h2>Experience</h2>
         <div class="one-column">
-          <p>
-            <!-- TODO: High-level research statement -->
-            My research currently focuses on designing efficient multi-agent systems with integrated communication, especially under constrained-resource scenarios. In addition, I am interested in WiFi-based human pose estimation.
-            I welcome collaborations in these areas.
-          </p>
-      
+          <ul class="experience-list">
+            <li>
+              <div class="item-title">Undergraduate Student, HUST</div>
+              <div class="item-meta">2020 to 2021 · Hanoi, Vietnam</div>
+            </li>
+            <li>
+              <div class="item-title">Undergraduate Research Student, Phenikaa University</div>
+              <div class="item-meta">2021 to 2023 · Vietnam</div>
+              <div><strong>Advisor:</strong> <a href="https://tvluong.wordpress.com/" target="_blank" rel="noopener noreferrer">Dr. Thien Van Luong</a></div>
+              <div><strong>Topic:</strong> Applying ML-based signal detection in wireless communication systems.</div>
+            </li>
+            <li>
+              <div class="item-title">AI Engineer Intern, Bosch Vietnam</div>
+              <div class="item-meta">August 2022 to February 2023 · Vietnam</div>
+            </li>
+            <li>
+              <div class="item-title">Research Assistant, ICC Lab, VinUniversity</div>
+              <div class="item-meta">July 2023 to November 2024 · Vietnam</div>
+              <div><strong>Advisor:</strong> <a href="https://www.tcd.ie/scss/people/academic-staff/nguyenva/" target="_blank" rel="noopener noreferrer">Asst. Prof. Van-Dinh Nguyen</a></div>
+              <div><strong>Topic:</strong> Leveraging AI/ML and wireless sensing technologies for human pose estimation.</div>
+            </li>
+            <li>
+              <div class="item-title">Ph.D. Student, Mentis Lab, Northeastern University</div>
+              <div class="item-meta">January 2025 to April 2026 · Boston, MA, USA</div>
+              <div><strong>Advisor:</strong> <a href="https://coe.northeastern.edu/people/restuccia-francesco/" target="_blank" rel="noopener noreferrer">Asst. Prof. Francesco Restuccia</a></div>
+              <div><strong>Topic:</strong> Applying AI/ML in next-generation multi-agent control systems.</div>
+            </li>
+            <li>
+              <div class="item-title">Ph.D. Student, HumanX Lab, Dartmouth College</div>
+              <div class="item-meta">June 2026 to Present · Hanover, NH, USA</div>
+              <div><strong>Advisor:</strong> <a href="https://humanx.dartmouth.edu/tamvu/" target="_blank" rel="noopener noreferrer">Distinguished Professor Tam Vu</a></div>
+              <div><strong>Topic:</strong> AI/ML-based wearable devices for healthcare applications.</div>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
-
     <!-- ========= PUBLICATIONS SECTION ========= -->
-    <section id="publications" class="section section-alt">
+    <section id="publications" class="section">
       <div class="container">
         <h2>Publications</h2>
         <p class="section-note">
           *Authors in bold indicate corresponding or equal contribution. See all of my research publications on
-          <a href="https://scholar.google.com/citations?user=oeh2iTYAAAAJ&hl=en" target="_blank">Google Scholar</a>.
+          <a href="https://scholar.google.com/citations?user=oeh2iTYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>.
         </p>
 
         <ol class="pub-list">
-
-
           <li>
-            <span class="pub-title">
-              TinySense: Effective CSI Compression for Scalable and Accurate Wi-Fi Sensing
-            </span><br />
-            <span class="pub-authors">
-              <strong>Toan Gian</strong>, Dung Tran, Francesco Restuccia, Quoc Viet Pham, Van-Dinh Nguyen
-            </span><br />
-            <span class="pub-venue">
-              IEEE International Conference on Pervasive Computing and Communications (PerCom), 2026 (A*, 15% acceptance).
-            </span><br />
+            <span class="pub-title">TinySense: Effective CSI Compression for Scalable and Accurate Wi-Fi Sensing</span><br />
+            <span class="pub-authors"><strong>Toan Gian</strong>, Dung Tran, Francesco Restuccia, Quoc Viet Pham, Van-Dinh Nguyen</span><br />
+            <span class="pub-venue">IEEE International Conference on Pervasive Computing and Communications (PerCom), 2026.</span><br />
             <span class="pub-links">
-              <a href="https://arxiv.org/pdf/2601.15838" target="_blank">PDF</a> ·
-              <a href="https://github.com/Toandinh1/TinySense" target="_blank">Code</a>
+              <a href="https://arxiv.org/pdf/2601.15838" target="_blank" rel="noopener noreferrer">PDF</a> ·
+              <a href="https://github.com/Toandinh1/TinySense" target="_blank" rel="noopener noreferrer">Code</a>
             </span>
           </li>
 
           <li>
-            <span class="pub-title">
-              SDE-HARL: Scalable Distributed Policy Execution for Heterogeneous-Agent Reinforcement Learning
-            </span><br />
-            <span class="pub-authors">
-              <strong>Toan Gian</strong>, Mohammad Abdi, Francesco Restuccia
-            </span><br />
-            <span class="pub-venue">
-              Conference on Artificial Intelligence (AAAI), 2026 (A*, 17% acceptance)
-            </span><br />
+            <span class="pub-title">SDE-HARL: Scalable Distributed Policy Execution for Heterogeneous-Agent Reinforcement Learning</span><br />
+            <span class="pub-authors"><strong>Toan Gian</strong>, Mohammad Abdi, Francesco Restuccia</span><br />
+            <span class="pub-venue">AAAI Conference on Artificial Intelligence, 2026.</span><br />
             <span class="pub-links">
-              <a href="https://ojs.aaai.org/index.php/AAAI/article/view/39274" target="_blank">PDF</a> ·
-              <a href="https://github.com/Restuccia-Group/SDE_HARL" target="_blank">Code</a>
+              <a href="https://ojs.aaai.org/index.php/AAAI/article/view/39274" target="_blank" rel="noopener noreferrer">PDF</a> ·
+              <a href="https://github.com/Restuccia-Group/SDE_HARL" target="_blank" rel="noopener noreferrer">Code</a>
             </span>
           </li>
 
           <li>
-            <span class="pub-title">
-              HPE-Li: WiFi-enabled Lightweight Dual Selective Kernel Convolution for Human Pose Estimation
-            </span><br />
-            <span class="pub-authors">
-              <strong>Toan Gian</strong>, Tien Lai, Thien Van Luong, Kok-Seng Wong, Van-Dinh Nguyen
-            </span><br />
-            <span class="pub-venue">
-              European Conference on Computer Vision (ECCV), 2024 (A*, 21% acceptance)
-            </span><br />
+            <span class="pub-title">HPE-Li: WiFi-enabled Lightweight Dual Selective Kernel Convolution for Human Pose Estimation</span><br />
+            <span class="pub-authors"><strong>Toan Gian</strong>, Tien Lai, Thien Van Luong, Kok-Seng Wong, Van-Dinh Nguyen</span><br />
+            <span class="pub-venue">European Conference on Computer Vision (ECCV), 2024.</span><br />
             <span class="pub-links">
-              <a href="https://link.springer.com/chapter/10.1007/978-3-031-72751-1_6" target="_blank">PDF</a> ·
-              <a href="https://github.com/Toandinh1/ECCV24_Li-HPE" target="_blank">Code</a>
+              <a href="https://link.springer.com/chapter/10.1007/978-3-031-72751-1_6" target="_blank" rel="noopener noreferrer">PDF</a> ·
+              <a href="https://github.com/Toandinh1/ECCV24_Li-HPE" target="_blank" rel="noopener noreferrer">Code</a>
             </span>
           </li>
-
         </ol>
       </div>
     </section>
 
-
     <!-- ========= CONTACT SECTION ========= -->
-    <section id="contact" class="section">
+    <section id="contact" class="section section-alt">
       <div class="container">
         <h2>Contact</h2>
         <div class="two-column">
           <p>
-            <!-- TODO: Contact text -->
-            I am always open to discussing research collaborations about multi-agent system (MARL) with communication as well as WiFi-enabled humnan pose estimation. Additionally, I am happy to connect with internship and job opportunities in these areas. Please feel free to reach out if you are interested in working together or just want to say hi!
-            The best way to reach me is via email.
+            I am always open to discussing research collaborations in multi-agent systems, communication-efficient learning, wireless sensing, and WiFi-enabled human pose estimation. I am also happy to connect regarding internship and job opportunities in these areas. Please feel free to reach out if you are interested in working together or simply want to say hi.
           </p>
           <div class="contact-box">
             <p>
               <strong>Email:</strong><br />
-              <!-- TODO -->
-              <a href="mailto:toan.example@northeastern.edu">
-                toan.g@northeastern.edu
-              </a>
+              <a href="mailto:toan.g@northeastern.edu">toan.g@northeastern.edu</a>
             </p>
             <p>
               <strong>Location:</strong><br />
@@ -240,10 +637,11 @@
             </p>
             <p>
               <strong>Elsewhere:</strong><br />
-              <!-- TODO: Update links -->
-              <a href="https://scholar.google.com/citations?user=oeh2iTYAAAAJ&hl=en" target="_blank">Google Scholar</a>
-              <a href="https://github.com/Toandinh1" target="_blank">GitHub</a>
-              <a href="https://www.linkedin.com/in/toan-gian-450395244/" target="_blank">LinkedIn</a>
+              <span class="social-links">
+                <a href="https://scholar.google.com/citations?user=oeh2iTYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                <a href="https://github.com/Toandinh1" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/toan-gian-450395244/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              </span>
             </p>
           </div>
         </div>
@@ -254,15 +652,11 @@
   <!-- ========= FOOTER ========= -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>
-        <!-- TODO -->
-        © <span id="year"></span> <!-- Your name --> Toan D. Gian. All rights reserved.
-      </p>
+      <p>© <span id="year"></span> Toan D. Gian. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
-    // Auto update year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
